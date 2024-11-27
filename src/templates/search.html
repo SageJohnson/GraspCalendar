@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <div class="index-menu">
+        {% if error is defined %}
+        <p class="error-text">{{error}}</p>
+        {% endif %}
+        <form action="" method="POST" novalidate>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <table>
+                <th>{{form.date}}</th>
+                <th>{{form.event_or_task}}</th>
+                <th>{{form.submit()}}</th>
+            </table>
+        </form>
+        <table>
+            <tr>
+                <th>Event</th>
+                <th>Notes</th>
+                <th>Date</th>
+            </tr>
+            {% if events is defined %}
+                {% for item in events %}
+                <tr>
+                    <td>
+                       {{item.title}}
+                    </td>
+                    <td>
+                        {{item.notes}}
+                    </td>
+                    <td>
+                        {{item.date}}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+    // this function should not exist after url_for implementation
+    function simple_respnse() {
+        console.log("reveived")
+    }
+</script>
+{% endblock %}

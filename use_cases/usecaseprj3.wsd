@@ -1,0 +1,22 @@
+@startuml
+
+:User:
+
+package Calender {
+    User --> (Create an Account)
+    (Create an Account) .. (Login) : includes
+    User --> (View Calendar)
+    (View Calendar) .. (View by Month) : includes
+    (View Calendar) .. (View by Week) : includes
+    (View Calendar) .. (View by Day) : includes
+    (View Calendar) .. (Search Calendar by Date)
+    User --> (Create an Event)
+    (Create an Event) .. (Edit Event) : includes
+    (Create an Event) .. (Delete Event) : includes
+    User --> (Create a Task)
+    (Create a Task) .. (Edit Task) : includes
+    (Create a Task) .. (Delete Task) : includes
+
+}
+
+@enduml

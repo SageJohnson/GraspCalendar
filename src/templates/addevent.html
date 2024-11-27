@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <div class="index-menu">
+        {% if error is defined %}
+        <p class="error-text">{{error}}</p>
+        {% endif %}
+        <form action="" method="POST" novalidate>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <table>
+                <tr>
+                    <td class="td-form">Title:</td>
+                    <td class="td-form">{{form.title}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">Start Time:</td>
+                    <td class="td-form">{{form.start_time}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">End Time:</td>
+                    <td class="td-form">{{form.end_time}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">Notes:</td>
+                    <td class="td-form">{{form.notes}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">{{form.submit}}</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+    // this function should not exist after url_for implementation
+    function simple_respnse() {
+        console.log("reveived")
+    }
+</script>
+{% endblock %}

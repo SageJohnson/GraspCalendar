@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  type="text/css" href="{{ url_for('.static', filename='style.css')}} ">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="header-band">
+        <button type="button" class="button" onclick="simple_action('{{ url_for('week') }}')">Week</button>
+        <button type="button" class="button" onclick="simple_action('{{ url_for('month') }}')">Month</button>
+        <button type="button" class="button" onclick="simple_action('{{ url_for('add_event') }}')">Add Event</button>
+        <button type="button" class="button" onclick="simple_action('{{ url_for('add_task') }}')">Add Task</button>
+        <button type="button" class="button" onclick="simple_action('{{ url_for('search') }}')">Search</button>
+    </div>
+{% block main %}
+{% endblock %}
+</body>
+</html>

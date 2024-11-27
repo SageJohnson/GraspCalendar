@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <table>
+        <tr>
+            <th>TIME</th>
+            <th>TYPE</th>
+            <th>TITLE</th>
+            <th>{{date}}</th>
+            <th style="background-color: #00000000;"></th>
+        </tr>
+        {% for event in events %}
+            <tr class="day-row">
+                <td class="day-time" onclick="simple_action('{{url_for('edit_event', event_id=event.id)}}')">
+                    <div class="time-tag">
+                        <p>{{event.start_time.timetz().strftime("%H:%M")}}</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="day-text">
+                        {{event.type.value.capitalize()}}
+                    </div>
+                </td>
+                <td>
+                    <div class="day-text">
+                        {{event.title.capitalize()}}
+                    </div>
+                </td>
+                {% if event.type.value == "task" %}
+                <td onclick="simple_action('{{url_for('edit_task', task_id=event.id)}}')">
+                <div class="day-text">
+                    <p>{{ event.start_time.timetz().strftime("%H:%M") }} {{ event.notes }}</p>
+                </div>
+                </td>
+                {% endif %}
+                {% if event.type.value == "event" %}
+                <td onclick="simple_action('{{url_for('edit_event', event_id=event.id)}}')">
+                <div class="day-text">
+                    <p>{{ event.start_time.timetz().strftime("%H:%M") }} {{ event.notes }}</p>
+                </div>
+                </td>
+                {% endif %}
+                <td class="hint-text">
+                    <p>click row to change</p>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+</script>
+{% endblock %}

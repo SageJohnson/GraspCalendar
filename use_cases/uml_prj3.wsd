@@ -1,0 +1,40 @@
+@startuml todo #1
+class User { 
+    ID: str
+    password: str
+    signup()
+    login()
+}
+
+class Event {
+    ID: str
+    user_ID: str
+    title: str
+    start_time: DateTime
+    end_time: DateTime
+    date: DateTime
+    notes: str
+    create()
+    edit()
+    delete()
+}
+
+Event "0..N" o--> "1" User : user
+User "1" *--> "0..N" Event : Events
+
+class Task {
+    ID: str
+    user_ID: str
+    information: str
+    start_time: DateTime
+    date: DateTime
+    is_completed: boolean
+    create()
+    edit()
+    delete()
+}
+
+User "1" *--> "0..N" Task : tasks
+Task "0..N" o--> "1" User : user
+
+@enduml

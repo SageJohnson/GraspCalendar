@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <table>
+        <tr>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+        </tr>
+        <tr>
+        {% for i in range(0, offset) %}
+            <td></td>
+        {% endfor %}
+        {% set count = [] %}
+            {% for j in range(start_day + 1, 7) %}
+            <td onclick="simple_action('{{url_for('day', day=count|length + 1)}}')">
+                <div class="week-day">
+                    <div class="time-tag">
+                        <p class="time-text">{{ count|length + 1 }}</p>
+                    </div>
+                </div>
+                {% set count = count.append(1) %}
+            </td>
+            {% endfor %}
+            {% for w in range(1, 4) %}
+            <tr>
+                {% for k in range(0, 7) %}
+            <td onclick="simple_action('{{url_for('day', day=count|length + 1)}}')">
+                <div class="week-day">
+                    <div class="time-tag">
+                        <p class="time-text">{{ count|length + 1 }}</p>
+                    </div>
+                </div>
+            </td>
+                {% set count = count.append(1) %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            {% if (days_in_month - count|length) <= 7 %}
+            <tr>
+            {% for l in range(count|length, days_in_month) %}
+            <td onclick="simple_action('{{url_for('day', day=count|length + 1)}}')">
+                <div class="week-day">
+                    <div class="time-tag">
+                        <p class="time-text">{{ count|length + 1 }}</p>
+                    </div>
+                </div>
+            </td>
+            {% set count = count.append(1) %}
+            {% endfor %}
+            </tr>
+            {% else %}
+            <tr>
+                {% for m in range(0, 7)%}
+                <td onclick="simple_action('{{url_for('day', day=count|length + 1)}}')">
+                    <div class="week-day">
+                        <div class="time-tag">
+                            <p class="time-text">{{ count|length + 1 }}</p>
+                        </div>
+                    </div>
+                </td>
+                {% set count = count.append(1) %}
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for n in range(count|length, days_in_month) %}
+                <td onclick="simple_action('{{url_for('day', day=count|length + 1)}}')">
+                    <div class="week-day">
+                        <div class="time-tag">
+                            <p class="time-text">{{ count|length + 1 }}</p>
+                        </div>
+                    </div>
+                </td>
+                {% set count = count.append(1) %}
+                {% endfor %}
+            </tr>
+            {% endif %}
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+    // this function should not exist after url_for implementation
+    function simple_response() {
+        console.log("reveived")
+    }
+</script>
+{% endblock %}

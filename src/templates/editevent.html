@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <div class="index-menu">
+        <form action="" method="POST" novalidate>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <table>
+                <tr>
+                    <td class="td-form">BACK BUTTON HERE</td>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 120px;"></td>
+                    <td style="width: 100px;"></td>
+                    <td class="td-form delete-button" onclick="confirmed_action('{{url_for('delete_event', event_id=event_id)}}')">Delete Event</td>
+                </tr>
+                <!-- blank row for spacing -->
+                <tr style="height: 30px;"></tr>
+                <tr>
+                    <td class="td-form">Current Title:</td>
+                    <td class="td-form">{{event.title}}</td>
+                    <td class="td-form" style="width: 60px;"></td>
+                    <td class="td-form">New Title:</td>
+                    <td class="td-form">{{form.new_title}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">Current Start Time:</td>
+                    <td class="td-form">{{event.start_time.strftime("%D at %H:%M")}}</td>
+                    <td class="td-form" style="width: 60px;"></td>
+                    <td class="td-form">New Start Time:</td>
+                    <td class="td-form">{{form.new_start_time_and_date}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">Current End Time:</td>
+                    <td class="td-form">{{event.end_time.strftime("%D at %H:%M")}}</td>
+                    <td class="td-form" style="width: 60px;"></td>
+                    <td class="td-form">New End Time:</td>
+                    <td class="td-form">{{form.new_end_time_and_date}}</td>
+                </tr>
+                <tr>
+                    <td class="td-form">Current Notes:</td>
+                    <td class="td-form">{{event.notes}}</td>
+                    <td class="td-form" style="width: 60px;"></td>
+                    <td class="td-form">New Notes:</td>
+                    <td class="td-form">{{form.new_event_notes}}</td>
+                </tr>
+                <!-- blank row for spacing -->
+                <tr style="height: 30px;"></tr>
+                <tr>
+                    <td class="td-form" onclick="simple_responsse">{{form.submit}}</td>
+                </tr>
+            </table>
+        </form>
+        <p id="error-text">{% if error is defined %}{{error}}{% endif %}</p>
+    </div>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+    function confirmed_action(target) {
+        if (confirm('Are you sure you want to delete this event?')) {
+                window.location = target
+            }
+        }
+</script>
+{% endblock %}

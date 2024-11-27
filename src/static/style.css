@@ -1,0 +1,273 @@
+:root {
+    --background-color-1:rgb(240, 240, 240);
+    --background-color-2: rgba(255, 255, 255, 0.2);
+    --background-color-highlight-1:rgb(195, 242, 232);
+    --background-color-highlight-2:rgb(152, 228, 211);
+    --accent-color-1:rgb(26, 131, 188) 0%;
+    --accent-color-2: rgb(26, 188, 147);
+    --accent-color-3: rgb(211, 94, 94);
+    --accent-color-4: rgb(221, 125, 125);
+    --success-color-1:rgb(216, 255, 230);
+    --text-color-1: rgb(255, 255, 255, 1.0);
+    --text-color-2: rgb(0, 0, 0, 1.0);
+    --sunday: hsl(125, 94%, 42%);
+    --monday: hsl(170, 94%, 42%);
+    --tuesday: hsl(198, 94%, 42%);
+    --wednesday: hsl(260, 94%, 42%);
+    --thursday: hsl(303, 94%, 42%);
+    --friday: hsl(347, 94%, 42%);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    margin: 0;
+    color:var(--text-color-1);
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    background: var(--accent-color-1);
+    color:var(--text-color-1);
+    padding: 8px;
+    font-size: 1.6rem;
+}
+
+tr {
+    background-color: #00000000;
+}
+
+td {
+    transition-duration: 400ms;
+    background-color: #ffffff00;
+}
+
+td:hover {
+    cursor: pointer;
+    transition-duration: 100ms;
+    background-color: var(--background-color-highlight-1);
+}
+
+td:active {
+    transition-duration: 0ms;
+    background-color: var(--background-color-highlight-2);
+}
+
+h1 {
+    font-size: 8rem;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+input[type=password] {
+    padding: 4px;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, .15);
+    background-color: white;
+    font-size: 16px;
+}
+
+input[type=text] {
+    padding: 4px;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, .15);
+    background-color: white;
+    font-size: 16px;
+}
+
+input[type=submit] {
+    transition-duration: 200ms;
+    background-color: var(--accent-color-1);
+    font-size: 1.2rem;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-width: 0px;
+    color: white;
+}
+
+input[type=submit]:hover {
+    transition-duration: 200ms;
+    cursor: pointer;
+    background-color: var(--background-color-2);
+}
+
+
+.body-content {
+    margin: 32px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.td-form {
+    font-size: 1.6rem;
+}
+
+.td-form:hover {
+    cursor:auto;
+    background-color: #ffffff00;
+}
+
+.th-highlight {
+    background: var(--accent-color-2);
+}
+
+.hint-text {
+    background-color:white;
+}
+
+.header-band {
+    position: fixed;
+    min-width: 100vw;
+    transform-origin: center top;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    background: var(--accent-color-1);
+    color: white;
+    font-size: 30px;
+}
+
+.header-band:hover {
+    position: fixed;
+    display: flex;
+}
+
+.index-menu {
+    margin: 60px;
+    padding: 70px;
+    background:var(--accent-color-1);
+}
+
+.time-tag {
+    padding: 0px;
+    background-color: var(--accent-color-2);
+    color:var(--text-color-1);
+    margin: 5px;
+}
+
+.time-text {
+    padding: 2px;
+    margin: 5px;
+    width: 24px;
+}
+
+.week-day {
+    display: flex;
+    align-items: center;
+    justify-content: top center;
+}
+
+.week-day-activity {
+    color:var(--text-color-2);
+    padding: 4px;
+}
+
+.day-text {
+    color: var(--text-color-2);
+    text-align: center;
+    text-wrap: pretty;
+    text-align: justify;
+    text-align-last:left;
+    letter-spacing: 1px;
+    min-width: 300px;
+    width: 300px;
+}
+
+.day-row {
+    background-color: var(--background-color-1);
+    color:var(--text-color-1)
+}
+
+.day-row:hover {
+    cursor: pointer;
+    background-color: var(--background-color-highlight-1);
+    color:var(--text-color-2);
+}
+
+.button {
+    transition-duration: 500ms;
+    background-color: #ffffff00;
+    font-size: 1.6rem;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-width: 0px;
+    border-style: solid;
+    color: white;
+}
+
+.button:hover {
+    transition-duration: 220ms;
+    cursor: pointer;
+    background-color: var(--background-color-2);
+}
+
+.button-index {
+    transition-duration: 500ms;
+    background-color: #ffffff00;
+    font-size: 1.6rem;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-width: 2px;
+    border-style: solid;
+    color: white;
+}
+
+.button-index:hover {
+    transition-duration: 220ms;
+    cursor: pointer;
+    background-color: var(--background-color-2);
+}
+
+.delete-button {
+    text-align: center;
+    width: 60px;
+    height: 50px;
+    background: var(--accent-color-3);
+}
+
+.delete-button:hover {
+    background: var(--accent-color-4);
+}
+
+.error-text {
+    animation: error-flashing 200ms linear 0s 3;
+    font-size: 1.6rem;
+    color: var(--accent-color-3);
+}
+
+@keyframes error-flashing {
+    0% {
+        color: var(--accent-color-3);
+    }
+    50% {
+        color: var(--background-color-1);
+    }
+    100% {
+        color: var(--accent-color-3);
+    }
+}

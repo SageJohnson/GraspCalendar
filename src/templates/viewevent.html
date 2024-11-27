@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="body-content">
+    <div class="index-menu">
+        <table>
+            <tr>
+                <td class="td-form">BACK BUTTON HERE</td>
+            </tr>
+            <tr>
+                <td class="td-form">START</td>
+                <td class="td-form">CURRENT EVENT DATA HERE</td>
+            </tr>
+            <tr>
+                <td class="td-form">END</td>
+                <td class="td-form">CURRENT EVENT DATA HERE</td>
+            </tr>
+            <tr>
+                <td class="td-form">DESCRIPTION</td>
+                <td class="td-form">CURRENT EVENT DATA HERE</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+    // this function should not exist after url_for implementation
+    function simple_respnse() {
+        console.log("reveived")
+    }
+</script>
+{% endblock %}

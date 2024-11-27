@@ -1,0 +1,4 @@
+.venv/
+src/instance/
+src/app/__pycache__/
+READMEold.md

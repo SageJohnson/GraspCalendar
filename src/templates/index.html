@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <div class="index-menu">
+        <h1>Grasp</h1>
+        <h2>Always Know When.</h2>
+        <button type="button" class="button-index" onclick=simple_action("{{ url_for('login') }}")>Login</button>
+        <button type="button" class="button-index" onclick=simple_action("{{ url_for('signup') }}")>Sign Up</button>
+    </div>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+</script>
+{% endblock %}

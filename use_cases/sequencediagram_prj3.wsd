@@ -1,0 +1,21 @@
+@startuml
+
+participant User
+participant Browser
+participant Database
+
+
+  User -> Browser: Click button for Create Event
+  Browser -> User: Send Event Form
+
+  alt Form is accepted
+    Browser -> Database: Saves event
+    Browser -> User: Redirects to week page
+    Browser -> User: Displays event on calendar
+  
+  else Form is not accepted
+    Browser -> User: Display Error Message
+  end
+
+
+@enduml

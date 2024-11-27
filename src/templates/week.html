@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="body-content">
+    <p>{{current_time}}</p>
+    <table>
+        <tr>
+            {% if today == 6 %}
+                <th class="th-highlight">Sunday</th>
+            {% else %}
+                <th>Sunday</th>
+            {% endif %}
+            {% if today == 0 %}
+                <th class="th-highlight">Monday</th>
+            {% else %}
+                <th>Monday</th>
+            {% endif %}
+            {% if today == 1 %}
+            <th class="th-highlight">Tuesday</th>
+            {% else %}
+                <th>Tuesday</th>
+            {% endif %}
+            {% if today == 2 %}
+            <th class="th-highlight">Wednesday</th>
+            {% else %}
+                <th>Wednesday</th>
+            {% endif %}
+            {% if today == 3 %}
+            <th class="th-highlight">Thursday</th>
+            {% else %}
+                <th>Thursday</th>
+            {% endif %}
+            {% if today == 4 %}
+            <th class="th-highlight">Friday</th>
+            {% else %}
+                <th>Friday</th>
+            {% endif %}
+            {% if today == 5 %}
+            <th class="th-highlight">Saturday</th>
+            {% else %}
+                <th>Saturday</th>
+            {% endif %}
+        </tr>
+        <tr>
+            <td onclick="simple_action('{{url_for('day', day=0 - offset + 1 + ((wk_offset - 1) * 7))}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.day == 6 * wk_offset %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+            <td onclick="simple_action('{{url_for('day', day=1 - offset + 1 + ((wk_offset - 1) * 7))}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.day == 0 * wk_offset %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+            <td onclick="simple_action('{{url_for('day', day=2 - offset + 1 + ((wk_offset - 1) * 7))}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.weekday() == 1 %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+            <td onclick="simple_action('{{url_for('day', day=3 - offset + 1 + ((wk_offset - 1) * 7))}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.weekday() == 2 %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+            <td onclick="simple_action('{{url_for('day', day=4 - offset + 1 + ((wk_offset - 1) * 7))}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.weekday() == 3 %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+            <td onclick="simple_action('{{url_for('day', day=5 - offset + 1 + ((wk_offset - 1) * 7))}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.weekday() == 4 %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+            <td onclick="simple_action('{{url_for('day', day=6 - offset + 1 + ((wk_offset - 1) * 7))}}')}}')">
+                {% for event in events %}
+                <div class="week-day">
+                        {% if event.start_time.weekday() == 5 %}
+                        <div class="time-tag">
+                            <p class="time-text">{{ event.start_time.timetz().strftime("%H:%M") }}</p>
+                        </div>
+                        <p class="week-day-activity">{{ event.title }}</p>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target
+    }
+    // this function should not exist after url_for implementation
+    function simple_respnse() {
+        console.log("reveived")
+    }
+</script>
+{% endblock %}
